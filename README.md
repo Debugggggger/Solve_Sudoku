@@ -9,7 +9,11 @@
 1. 난이도에 상관없이 필요한 기본 메소드
 
 2. 매우 쉬움 난이도를 위한 메소드
-
-3. 약간어려움 난이도를 위한 메소드
+3. 
+4. 약간어려움 난이도를 위한 메소드
+<img src="./3_oneBlocktoline.jpg" width = "300px">
+<img src="./3_onlyOne.jpg" width = "300px">
 
 4. 까다로움 난이도를 위한 메소드
+<img src="./4_nNumberToall.jpg" width = "300px">
+<img src="./4_twoBlockToBlock.jpg" width = "300px">
