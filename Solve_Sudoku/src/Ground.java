@@ -15,6 +15,7 @@ class Sudoku {
 				else working[i][j][0]=1;
 			}
 	}
+	// while문을 돌려서 답이 나올때까지 로직을 실행한다.
 	public void operate() {
 		int b = 0;// 무한루프를 막기위한 최소한의 노력
 		while(this.done!=0) {
@@ -88,7 +89,7 @@ class Sudoku {
 		}
 		return false;
 	}
-	
+	// Working에 결과값이 하나 있으면 result에 넣는다.
 	public void makeResult() {
 		this.done=0;
 		for(int i=0;i<9;i++) for(int j=0;j<9;j++) {
@@ -135,6 +136,7 @@ class Sudoku {
 			}
 		}
 	}
+	// Working을 출력하는 메소드
 	public void printWorking() {
 		System.out.println("******시트********");
 		System.out.print("-------------------------------------------------------------------------------------------------------");
