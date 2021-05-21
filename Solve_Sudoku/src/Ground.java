@@ -3,7 +3,7 @@ class Sudoku {
 	private int[][] origin;
 	public int[][] result;
 	private int[][][] working = new int[10][10][10];
-	// 초기화 메소드
+	// 1 초기화 메소드
 	public Sudoku(int origin[][]) {
 		this.origin = origin;
 		this.result = origin;
@@ -15,29 +15,32 @@ class Sudoku {
 				else working[i][j][0]=1;
 			}
 	}
-	// while문을 돌려서 답이 나올때까지 로직을 실행한다.
+	// 1 while문을 돌려서 답이 나올때까지 로직을 실행한다.
 	public void operate() {
 		int b = 0;// 무한루프를 막기위한 최소한의 노력
 		while(this.done!=0) {
 			if(b>100) {
 				break;
 			}
+			/*
 			deleteRowCol();
 			deleteBlock();
 			makeResult();
+			 */
 			b++;
 		}
 		
 		printResult(result);
 		printWorking();
 	}
-	// 행과 열을 대입하면 몇번째 칸인지 리턴
+	// 2 행과 열을 대입하면 몇번째 칸인지 리턴
 	public int labeling(int i, int j) {
 		int row = i/3;
 		int col = j/3;
 		return 3*row+col+1;
 	}
-	// working 시트에서 같은행,열에 존재하는 숫자를 삭제
+	
+	// 2 working 시트에서 같은행,열에 존재하는 숫자를 삭제
 	public void deleteRowCol() {
 		// working 시트를 하나 잡아서 그 행에 있는 숫자를 뺀다. -> 실행시간을 줄여줄 수 있음
 		for(int i=0;i<9;i++) for(int j=0;j<9;j++)
@@ -51,7 +54,7 @@ class Sudoku {
 					}
 				}
 	}
-	// 입력받은 row행에 num이라는 숫자가 있는지 확인한다.
+	// 2 입력받은 row에 num이라는 숫자가 있는지 확인한다.
 	public boolean findRow(int row, int num) {
 		for (int j=0;j<9;j++) {
 			if(result[row][j]==num) {
@@ -60,7 +63,7 @@ class Sudoku {
 		}
 		return false;
 	}
-	// 입력받은 col행에 num이라는 숫자가 있는지 확인한다.
+	// 2 입력받은 col에 num이라는 숫자가 있는지 확인한다.
 	public boolean findCol(int col, int num) {
 		for (int i=0;i<9;i++) {
 			if(result[i][col]==num) {
@@ -69,7 +72,7 @@ class Sudoku {
 		}
 		return false;
 	}
-	// working 시트에서 3x3블록에 존재하는 숫자 삭제
+	// 2 working 시트에서 3x3블록에 존재하는 숫자 삭제
 	public void deleteBlock() {
 		for(int i=0;i<9;i++)for(int j=0;j<9;j++)
 			if(result[i][j]==0)
@@ -79,7 +82,7 @@ class Sudoku {
 					}
 				}
 	}
-	// 입력받은 label 박스에 num이라는 숫자가 있는지 확인한다.
+	// 2 입력받은 label 박스에 num이라는 숫자가 있는지 확인한다.
 	public boolean findBlock(int label, int num) {
 		label--;
 		int row = (label/3)*3;
@@ -89,7 +92,28 @@ class Sudoku {
 		}
 		return false;
 	}
-	// Working에 결과값이 하나 있으면 result에 넣는다.
+	
+
+	// 3 하나의 block이 하나의 행 또는 열을 필요로 할때, 해당 line의 working을 삭제한다.
+	public void oneBlocktoline() {
+		
+	}
+	// 3 working에 숫자가 여러개 남아있지만, 해당 줄 또는 칸에서 숫자가 딱 하나만 존재하는 경우
+	public void onlyOne() {
+		
+	}
+
+	
+	// 4 줄이나 칸에 n개의 숫자가 서로를 필요로 할때, 나머지 칸은 해당 숫자를 포기
+	public void nNumberToall() {
+		
+	}
+	// 4 두개의 block에서 두개의 행 또는 열을 필요로 할때, 나머지 block은 해당 line을 포기
+	public void twoBlockToBlock() {
+		
+	}
+	
+	// 1 Working에 결과값이 하나 있으면 result에 넣는다.
 	public void makeResult() {
 		this.done=0;
 		for(int i=0;i<9;i++) for(int j=0;j<9;j++) {
@@ -110,7 +134,7 @@ class Sudoku {
 			}
 		}
 	}
-	// 결과값을 출력하는 메소드
+	// 1 결과값을 출력하는 메소드
 	public void printResult(int[][] result) {
 		System.out.println("******결과********");
 		System.out.print("-------------");
@@ -136,7 +160,7 @@ class Sudoku {
 			}
 		}
 	}
-	// Working을 출력하는 메소드
+	// 1 Working을 출력하는 메소드
 	public void printWorking() {
 		System.out.println("******시트********");
 		System.out.print("-------------------------------------------------------------------------------------------------------");
